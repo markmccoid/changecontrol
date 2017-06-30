@@ -4848,6 +4848,7 @@ td, th {
 body {
   height: 100%;
   width: auto;
+  min-width: 600px;
   font-family: Helvetica;
   background: #FFF;
   -webkit-font-smoothing: antialiased; }

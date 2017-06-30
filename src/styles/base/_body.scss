@@ -33,6 +33,7 @@
  body {
  	height: 100%;
   width: auto;
+	min-width: 600px;
  	font-family: Helvetica;
  	background: $application-background;
  	-webkit-font-smoothing: antialiased;
