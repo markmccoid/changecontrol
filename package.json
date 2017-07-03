@@ -12,16 +12,16 @@
     "build": "webpack -p",
     "electron": "electron .",
     "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/changecontrol.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"NCS Change Control\"",
-		"pack": "electron-builder --dir --win",
-		"dist": "electron-builder"
+    "pack": "electron-builder --dir --win",
+    "dist": "electron-builder"
   },
-	"build": {
-		"appId": "ncs.change.control",
-		"directories": {
-			"buildResources": "./assets",
-			"output": "./dist"
-		}
-	},
+  "build": {
+    "appId": "ncs.change.control",
+    "directories": {
+      "buildResources": "./assets",
+      "output": "./dist"
+    }
+  },
   "author": "Mark McCoid",
   "license": "ISC",
   "devDependencies": {
@@ -38,19 +38,18 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "express": "^4.15.3",
-	  "antd": "^2.11.2",
+    "antd": "^2.11.2",
     "extract-text-webpack-plugin": "^2.1.2",
-		"css-loader": "^0.28.4",
-		"foundation-sites": "^6.4.0",
-		"lodash": "^4.17.4",
-		"node-sass": "^4.5.3",
-		"prop-types": "^15.5.10",
-		"react": "^15.6.1",
-		"react-dom": "^15.6.1",
-		"sass-loader": "^6.0.6",
-		"style-loader": "^0.18.2"
+    "css-loader": "^0.28.4",
+    "foundation-sites": "^6.4.0",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {},
+  "false": {}
 }
