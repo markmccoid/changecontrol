@@ -10,6 +10,7 @@ const Error = styled.div`
 const InputTextArea = styled.textarea`
 	${'' /* border: ${error && 'solid 1px red'}; */}
 	display: block;
+	width: 300px;
 `;
 
 const Fieldset = styled.div`

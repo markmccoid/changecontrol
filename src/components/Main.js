@@ -12,7 +12,7 @@ const WindowWrapper = styled.div`
 	padding: 10px;
 `;
 
-const InputWrapper = styled.div`
+const ContentWrapper = styled.div`
 	display: flex;
 	margin-top: ${props => `${props.marginTop}px`};
 `
@@ -32,13 +32,15 @@ class Main extends React.Component {
 	createChangeControl = () => {
 		console.log(this.state);
 	}
+	componentDidMount() {
+		document.getElementById("sfNum").focus();
+	}
   render() {
 
     return (
       <WindowWrapper>
         <h4>Analytix Change Control</h4>
-				<Button className="primary button" onClick={this.createChangeControl}>Create</Button>
-				<InputWrapper marginTop="25">
+				<ContentWrapper marginTop="25">
 	        <Input
 						htmlId="sfNum"
 						type="text"
@@ -55,8 +57,8 @@ class Main extends React.Component {
 						onChange={e => this.setState({company: e.target.value})}
 						value={this.state.company}
 					/>
-				</InputWrapper>
-				<InputWrapper marginTop="0">
+				</ContentWrapper>
+				<ContentWrapper marginTop="0">
 					<InputTextArea
 						htmlId="add"
 						name="add"
@@ -71,14 +73,14 @@ class Main extends React.Component {
 						onChange={e => this.setState({usersToRemove: e.target.value})}
 						value={this.state.usersToRemove}
 					/>
-				</InputWrapper>
-				<InputWrapper>
+				</ContentWrapper>
+				<ContentWrapper>
 					<Output
 						sfNumber={this.state.sfNumber}
 						company={this.state.company}
 						usersToAdd={this.state.usersToAdd}
 						usersToRemove={this.state.usersToRemove}/>
-				</InputWrapper>
+				</ContentWrapper>
       </WindowWrapper>
     )
   }

@@ -3,7 +3,8 @@ const electron = require('electron');
 const { app, BrowserWindow } = electron;
 
 let mainWindow;
-
+//Packager tutorial
+//https://www.christianengvall.se/electron-packager-tutorial/
 app.on('ready', () => {
 
 	if (process.env.NODE_ENV === 'development') {
@@ -12,8 +13,8 @@ app.on('ready', () => {
 	}
 
   mainWindow = new BrowserWindow({
-    width: 600,
-    height: 600,
+    width: 700,
+    height: 700,
 		minWidth: 600
   });
   mainWindow.loadURL(`file://${__dirname}/public/index.html`);

@@ -8,10 +8,12 @@ import 'antd/lib/tabs/style/css';
 
 import * as helpers from '../helpers/createOutput';
 
-const TabContent = styled.div`
+const TabContent = styled.textarea`
 	width: 600px;
+	height: 250px;
 	border: 1px solid black;
 	padding: 10px 20px;
+	white-space: pre-wrap;
 `;
 
 // <textarea name="text_area" rows="10" cols="80"
@@ -24,16 +26,41 @@ const Output = (props) => {
 	function callback(key) {
   	console.log(key);
 	}
+
 	return (
 		<Tabs onChange={callback} style={{width: "100%"}}>
 			<TabPane tab="Internal" key="1">
-				<TabContent onClick={}>{helpers.createInternal(props)}</TabContent>
+				<TabContent
+					id="internal"
+					value={`${helpers.createInternal(props)}`}
+				/>
+				<button className="button primary small"
+					onClick={()=> {
+						document.getElementById('internal').select();
+    				document.execCommand('copy');
+					}}>Copy</button>
 		</TabPane>
-			<TabPane tab="This is panel tab 2" key="2">
-				<p>{props.company}</p>
+		<TabPane tab="Customer" key="2">
+			<TabContent
+				id="customer"
+				value={`${helpers.createCustomer(props)}`}
+			/>
+			<button className="button primary small"
+				onClick={()=> {
+					document.getElementById('customer').select();
+					document.execCommand('copy');
+				}}>Copy</button>
 		</TabPane>
-			<TabPane tab="This is panel tab 3" key="3">
-				<p>{props.usersToAdd}</p>
+		<TabPane tab="Complete" key="3">
+			<TabContent
+				id="complete"
+				value={`${helpers.createComplete(props)}`}
+			/>
+			<button className="button primary small"
+				onClick={()=> {
+					document.getElementById('complete').select();
+					document.execCommand('copy');
+				}}>Copy</button>
 		</TabPane>
 	</Tabs>
 	)
