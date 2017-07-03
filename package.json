@@ -1,41 +1,56 @@
 {
   "name": "changecontrol",
+  "productName": "NCS Change Control",
   "version": "1.0.0",
-  "description": "",
+  "description": "NCS Analytix Change Control application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel dev:*",
     "dev:server": "node server.js",
     "dev:webpack": "webpack -w",
-    "build": "webpack",
-    "electron": "electron ."
+    "build": "webpack -p",
+    "electron": "electron .",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/changecontrol.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"NCS Change Control\"",
+		"pack": "electron-builder --dir --win",
+		"dist": "electron-builder"
   },
-  "author": "",
+	"build": {
+		"appId": "ncs.change.control",
+		"directories": {
+			"buildResources": "./assets",
+			"output": "./dist"
+		}
+	},
+  "author": "Mark McCoid",
   "license": "ISC",
   "devDependencies": {
     "babel-plugin-import": "^1.2.1",
     "electron": "^1.6.11",
+    "electron-builder": "^19.12.0",
+    "electron-packager": "^8.7.2",
     "npm-run-all": "^4.0.2",
     "styled-components": "^2.1.0",
-    "webpack": "^3.0.0"
-  },
-  "dependencies": {
-    "antd": "^2.11.2",
+    "webpack": "^3.0.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^0.28.4",
     "express": "^4.15.3",
+	  "antd": "^2.11.2",
     "extract-text-webpack-plugin": "^2.1.2",
-    "foundation-sites": "^6.4.0",
-    "node-sass": "^4.5.3",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2"
+		"css-loader": "^0.28.4",
+		"foundation-sites": "^6.4.0",
+		"lodash": "^4.17.4",
+		"node-sass": "^4.5.3",
+		"prop-types": "^15.5.10",
+		"react": "^15.6.1",
+		"react-dom": "^15.6.1",
+		"sass-loader": "^6.0.6",
+		"style-loader": "^0.18.2"
+  },
+  "dependencies": {
+
   }
 }

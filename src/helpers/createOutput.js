@@ -3,7 +3,7 @@ export const createInternal = (dataObj) => {
 	let { sfNumber, company, usersToAdd, usersToRemove } = dataObj;
 
 	let internalText = `************CHANGE REQUEST INTERNAL APPROVAL - CASE ${sfNumber} ************
-●     Request: Add access to ${company} for ${usersToAdd}; Remove access to ${company} for ${usersToRemove}
+●     Request: Add access to ${company} for ${usersToAdd}; ${usersToRemove ? `Remove access to ${company} for ${usersToRemove}` : ''}
 ●     Process: Add user ${usersToAdd} to the security spreadsheet with ${company} in the COMPANY_REDUCE field.
 ●     Testing: Analyst will verify that the users have been added to or removed from the security spreadsheet.User will verify by logging into Analytix.
 ●     Rollback/Recovery: Remove user ${usersToAdd} from ${company}
@@ -15,14 +15,15 @@ export const createInternal = (dataObj) => {
 
 export const createCustomer = (dataObj) => {
 	let internalText = createInternal(dataObj);
-	return `${internalText}
-●     ####: Low
-●     ####: None
-●     ####: ASAP`;
+	return `***I need your final approval before I can proceed.***
+${internalText}
+●     Maintenance: This forms part of the maintenance process and is not covered under the SLA
+●     NCS Approval Status: Approved   `;
 }
 
 export const createComplete = (dataObj) => {
-	return `●     ####: Low
-●     ####: None
-●     ####: ASAP`;
+	let { sfNumber, company, usersToAdd, usersToRemove } = dataObj;
+	return `*******CHANGE REQUEST COMPLETED - CASE ${sfNumber} ************
+●     Request:Add access to ${company} for ${usersToAdd}; ${usersToRemove ? `Remove access to ${company} for ${usersToRemove}` : ''}
+●     Completed by: Mark McCoid`;
 }
